@@ -1,7 +1,6 @@
 defmodule OrderIsComingWeb.SessionController do
   use OrderIsComingWeb, :controller
 
-  alias OrderIsComing.Repo
   alias OrderIsComing.Accounts.Auth
 
   def new(conn, _params) do
@@ -9,7 +8,7 @@ defmodule OrderIsComingWeb.SessionController do
   end
 
   def create(conn, params) do
-    case Auth.login(params, Repo) do
+    case Auth.login(params) do
       {:ok, user} ->
         conn
         |> put_session(:user_id, user.id)
