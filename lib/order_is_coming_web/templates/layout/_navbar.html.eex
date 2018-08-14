@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item <%= if "/" == @conn.request_path, do: 'active' %>">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item <%= if user_path(@conn, :index) == @conn.request_path, do: 'active' %>">
+        <%= link "Users", to: user_path(@conn, :index), class: "nav-link" %>
+      </li>
+      <%= if @conn.assigns.user do %>
+        <li>
+          <%= link "Sign Out", to: session_path(@conn, :delete), method: :delete, class: "nav-link" %>
+        </li>
+      <% else %>
+        <li>
+          <%= link "Sign in", to: session_path(@conn, :new), class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+    <span class="navbar-text">
+      <%= if @conn.assigns.user do %>
+        <%= @conn.assigns.user.username %>
+      <% end %>
+    </span>
+  </div>
+</nav>

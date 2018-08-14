@@ -40,7 +40,9 @@ defmodule OrderIsComing.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:comeonin, "~> 4.0"},
+      {:bcrypt_elixir, "~> 1.0"}
     ]
   end
 
@@ -54,6 +56,7 @@ defmodule OrderIsComing.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
+      # "ecto.migrate": ["ecto.migrate", "ecto.dump"]
       "test": ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
