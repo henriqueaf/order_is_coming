@@ -1,8 +1,8 @@
 defmodule OrderIsComing.Accounts.Auth do
-  alias OrderIsComing.Accounts.{Encryption, User}
+  alias OrderIsComing.Accounts.Encryption
 
-  def login(params, repo) do
-    user = repo.get_by(User, username: String.downcase(params["username"]))
+  def login(params) do
+    user = OrderIsComing.Accounts.get_user_by( %{username: String.downcase(params["username"])} )
 
     case authenticate(user, params["password"]) do
       true -> {:ok, user}

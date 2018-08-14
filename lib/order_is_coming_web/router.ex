@@ -1,8 +1,6 @@
 defmodule OrderIsComingWeb.Router do
   use OrderIsComingWeb, :router
 
-  alias OrderIsComingWeb.Router.Helpers
-
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -11,11 +9,14 @@ defmodule OrderIsComingWeb.Router do
     plug :put_secure_browser_headers
     plug OrderIsComingWeb.Plugs.SetUser
     plug :set_user_token_for_websocket
-    # plug :redirect_not_logged_user
   end
 
   pipeline :api do
     plug :accepts, ["json"]
+  end
+
+  pipeline :api_auth do
+    plug OrderIsComing.Auth.Pipeline
   end
 
   scope "/", OrderIsComingWeb do
@@ -28,10 +29,16 @@ defmodule OrderIsComingWeb.Router do
     resources "/users", UserController
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", OrderIsComingWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", OrderIsComingWeb, as: :api do
+    pipe_through :api
+
+    scope "/v1", Api.V1, as: :v1 do
+      post "/sign_in", SessionController, :sign_in
+
+      pipe_through :api_auth
+      resources "/users", UserController, only: [:index]
+    end
+  end
 
   defp set_user_token_for_websocket(conn, _) do
     if current_user = conn.assigns.user do
@@ -41,18 +48,4 @@ defmodule OrderIsComingWeb.Router do
       conn
     end
   end
-
-  # defp redirect_not_logged_user(conn, _) do
-  #   current_user = conn.assigns.user
-  #   "/" <> request_path = conn.request_path
-
-  #   if current_user == nil and request_path !== "login" && request_path !== "logout" do
-  #     conn
-  #     |> put_flash(:error, "You must be logged in")
-  #     |> redirect(to: Helpers.session_path(conn, :new))
-  #     |> halt()
-  #   else
-  #     conn
-  #   end
-  # end
 end
