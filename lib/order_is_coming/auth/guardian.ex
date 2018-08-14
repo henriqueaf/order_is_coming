@@ -17,8 +17,8 @@ defmodule OrderIsComing.Auth.Guardian do
     # found in the `"sub"` key. In `above subject_for_token/2` we returned
     # the resource id so here we'll rely on that to look it up.
     case Accounts.get_user!(id) do
-      nil  -> {:error, :user_not_found}
-      user -> {:ok, user}
+      nil -> {:error, :user_not_found}
+      resource -> {:ok, resource}
     end
   end
 end
