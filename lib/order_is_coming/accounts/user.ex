@@ -15,18 +15,32 @@ defmodule OrderIsComing.Accounts.User do
     timestamps()
   end
 
-  @required_fields ~w(name username password)
-  @optional_fields ~w()
+  @required_fields ~w(name username password)a
+  @optional_fields ~w()a
+
+  @update_required_fields ~w(name username)a
 
   @doc false
   def changeset(user, attrs) do
     user
     |> cast(attrs, @required_fields, @optional_fields)
-    |> validate_required([:name, :username])
+    |> validate_required(@required_fields)
     |> validate_length(:password, min: 4)
     |> validate_confirmation(:password)
     |> unique_constraint(:username, downcase: true)
     |> encrypt_password()
+    |> validate_required(:password_hash)
+  end
+
+  def update_changeset(user, attrs) do
+    user
+    |> cast(attrs, @update_required_fields, @optional_fields)
+    |> validate_required(@update_required_fields)
+    |> validate_length(:password, min: 4)
+    |> validate_confirmation(:password)
+    |> unique_constraint(:username, downcase: true)
+    |> encrypt_password()
+    |> validate_required(:password_hash)
   end
 
   defp encrypt_password(changeset) do

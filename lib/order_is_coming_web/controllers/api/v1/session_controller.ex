@@ -7,12 +7,12 @@ defmodule OrderIsComingWeb.Api.V1.SessionController do
     case Auth.login(params) do
       {:ok, user} ->
         with {:ok, token, _claims} <- OrderIsComing.Auth.Guardian.encode_and_sign(user) do
-          # Render the token
           render conn, "token.json", token: token
         end
       :error ->
+        body = Poison.encode!(%{error: "Incorrect username or password"})
         conn
-        |> send_resp(401, "Incorrect username or password")
+        |> send_resp(401, body)
     end
   end
 end
