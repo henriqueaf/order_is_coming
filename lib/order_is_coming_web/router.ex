@@ -17,6 +17,7 @@ defmodule OrderIsComingWeb.Router do
 
   pipeline :api_auth do
     plug OrderIsComing.Auth.Pipeline
+    plug :set_api_user
   end
 
   scope "/", OrderIsComingWeb do
@@ -46,6 +47,13 @@ defmodule OrderIsComingWeb.Router do
       assign(conn, :user_token, token)
     else
       conn
+    end
+  end
+
+  defp set_api_user(conn, _) do
+    case OrderIsComing.Auth.Guardian.Plug.current_resource(conn) do
+      nil -> conn
+      resource -> assign(conn, :user, resource)
     end
   end
 end
