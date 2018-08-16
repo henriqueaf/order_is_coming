@@ -54,5 +54,7 @@ config :order_is_coming, OrderIsComing.Repo,
   username: "postgres",
   password: "postgres",
   database: "order_is_coming_dev",
-  hostname: "localhost",
+  hostname: "172.17.0.2",
   pool_size: 10
+
+import_config "dev.secret.exs"

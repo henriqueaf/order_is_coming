@@ -29,6 +29,7 @@ defmodule OrderIsComingWeb.Router do
     delete "/logout", SessionController, :delete
     resources "/users", UserController
     resources "/items", ItemController
+    resources "/orders", OrderController
   end
 
   scope "/api", OrderIsComingWeb, as: :api do
