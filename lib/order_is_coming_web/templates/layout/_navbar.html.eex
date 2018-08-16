@@ -12,6 +12,9 @@
       <li class="nav-item <%= if user_path(@conn, :index) == @conn.request_path, do: 'active' %>">
         <%= link "Users", to: user_path(@conn, :index), class: "nav-link" %>
       </li>
+      <li class="nav-item <%= if item_path(@conn, :index) == @conn.request_path, do: 'active' %>">
+        <%= link "Items", to: item_path(@conn, :index), class: "nav-link" %>
+      </li>
       <%= if @conn.assigns.user do %>
         <li>
           <%= link "Sign Out", to: session_path(@conn, :delete), method: :delete, class: "nav-link" %>
