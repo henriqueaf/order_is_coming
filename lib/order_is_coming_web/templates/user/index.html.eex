@@ -1,11 +1,11 @@
-<h2>Listing Users</h2>
+<h2><%= gettext "Listing %{model_name}", model_name: ngettext("User", "Users", 2) %></h2>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Username</th>
-      <th>Admin?</th>
+      <th><%= dgettext "users", "Name" %></th>
+      <th><%= dgettext "users", "Username" %></th>
+      <th><%= dgettext "users", "Admin?" %></th>
 
       <th></th>
     </tr>
@@ -18,13 +18,13 @@
       <td><%= handler_admin_info(user) %></td>
 
       <td class="text-right">
-        <span><%= link "Show", to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        <span><%= link dgettext("links", "Show"), to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
+        <span><%= link dgettext("links", "Edit"), to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
+        <span><%= link dgettext("links", "Delete"), to: user_path(@conn, :delete, user), method: :delete, data: [confirm: gettext("Are you sure?")], class: "btn btn-danger btn-xs" %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New User", to: user_path(@conn, :new) %></span>
+<span><%= link gettext("New %{model_name}", model_name: ngettext("User", "Users", 1)), to: user_path(@conn, :new) %></span>

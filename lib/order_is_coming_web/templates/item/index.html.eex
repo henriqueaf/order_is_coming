@@ -1,12 +1,12 @@
-<h2>Listing Items</h2>
+<h2><%= gettext "Listing %{model_name}", model_name: ngettext("Item", "Items", 2) %></h2>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Code</th>
-      <th>Description</th>
-      <th>Value</th>
+      <th><%= dgettext "items", "Name" %></th>
+      <th><%= dgettext "items", "Code" %></th>
+      <th><%= dgettext "items", "Description" %></th>
+      <th><%= dgettext "items", "Value" %></th>
 
       <th></th>
     </tr>
@@ -20,13 +20,13 @@
       <td><%= item.value %></td>
 
       <td class="text-right">
-        <span><%= link "Show", to: item_path(@conn, :show, item), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: item_path(@conn, :edit, item), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: item_path(@conn, :delete, item), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        <span><%= link dgettext("links", "Show"), to: item_path(@conn, :show, item), class: "btn btn-default btn-xs" %></span>
+        <span><%= link dgettext("links", "Edit"), to: item_path(@conn, :edit, item), class: "btn btn-default btn-xs" %></span>
+        <span><%= link dgettext("links", "Delete"), to: item_path(@conn, :delete, item), method: :delete, data: [confirm: gettext("Are you sure?")], class: "btn btn-danger btn-xs" %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Item", to: item_path(@conn, :new) %></span>
+<span><%= link gettext("New %{model_name}", model_name: ngettext("Item", "Items", 1)), to: item_path(@conn, :new) %></span>

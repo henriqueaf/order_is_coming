@@ -6,19 +6,19 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :value, class: "control-label" %>
+    <%= label f, :value, dgettext("orders", "Value"), class: "control-label" %>
     <%= number_input f, :value, step: "any", class: "form-control", disabled: true %>
     <%= error_tag f, :value %>
   </div>
 
   <div class="form-group">
     <div class="form-group">
-      <%= label f, :item_ids, "Items" %>
+      <%= label f, :item_ids, ngettext("Item", "Items", 2), class: "control-label" %>
       <%= multiple_select f, :item_ids, Enum.map(@conn.assigns.items, &{&1.name, &1.id}), selected: (if @changeset.data.items, do: Enum.map(@changeset.data.items, &(&1.id))), class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit dgettext("links", "Submit"), class: "btn btn-primary" %>
   </div>
 <% end %>

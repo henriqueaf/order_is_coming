@@ -6,30 +6,30 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :name, class: "control-label" %>
+    <%= label f, :name, dgettext("users", "Name"), class: "control-label" %>
     <%= text_input f, :name, class: "form-control" %>
     <%= error_tag f, :name %>
   </div>
 
   <div class="form-group">
-    <%= label f, :username, class: "control-label" %>
+    <%= label f, :username, dgettext("users", "Username"), class: "control-label" %>
     <%= text_input f, :username, class: "form-control" %>
     <%= error_tag f, :username %>
   </div>
 
   <div class="form-group">
-    <%= label f, :password, class: "control-label" %>
+    <%= label f, :password, dgettext("users", "Password"), class: "control-label" %>
     <%= password_input f, :password, class: "form-control" %>
     <%= error_tag f, :password %>
   </div>
 
   <div class="form-group">
-    <%= label f, :password_confirmation, class: "control-label" %>
+    <%= label f, :password_confirmation, dgettext("users", "Password Confirmation"), class: "control-label" %>
     <%= password_input f, :password_confirmation, class: "form-control" %>
     <%= error_tag f, :password_confirmation %>
   </div>
 
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit dgettext("links", "Submit"), class: "btn btn-primary" %>
   </div>
 <% end %>

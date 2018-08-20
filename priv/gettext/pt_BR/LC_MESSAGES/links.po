@@ -1,0 +1,61 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/index.html.eex:25
+#: lib/order_is_coming_web/templates/order/index.html.eex:22
+#: lib/order_is_coming_web/templates/user/index.html.eex:23
+msgid "Delete"
+msgstr "Excluir"
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/index.html.eex:24
+#: lib/order_is_coming_web/templates/order/index.html.eex:21
+#: lib/order_is_coming_web/templates/user/index.html.eex:22
+msgid "Edit"
+msgstr "Editar"
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/index.html.eex:23
+#: lib/order_is_coming_web/templates/user/index.html.eex:21
+msgid "Show"
+msgstr "Visualizar"
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/layout/_navbar.html.eex:27
+#: lib/order_is_coming_web/templates/session/new.html.eex:4
+msgid "Sign In"
+msgstr "Entrar"
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/layout/_navbar.html.eex:23
+msgid "Sign Out"
+msgstr "Sair"
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/edit.html.eex:5
+#: lib/order_is_coming_web/templates/item/new.html.eex:5
+#: lib/order_is_coming_web/templates/order/edit.html.eex:5
+#: lib/order_is_coming_web/templates/order/new.html.eex:5
+#: lib/order_is_coming_web/templates/user/edit.html.eex:5
+#: lib/order_is_coming_web/templates/user/new.html.eex:5
+msgid "Back"
+msgstr "Voltar"
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/form.html.eex:33
+#: lib/order_is_coming_web/templates/order/form.html.eex:22
+#: lib/order_is_coming_web/templates/session/new.html.eex:26
+#: lib/order_is_coming_web/templates/user/form.html.eex:33
+msgid "Submit"
+msgstr "Enviar"

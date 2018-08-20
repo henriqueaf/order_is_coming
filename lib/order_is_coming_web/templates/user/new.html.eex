@@ -1,5 +1,5 @@
-<h2>New User</h2>
+<h2><%= gettext "New %{model_name}", model_name: ngettext("User", "Users", 1) %></h2>
 
 <%= render "form.html", Map.put(assigns, :action, user_path(@conn, :create)) %>
 
-<span><%= link "Back", to: user_path(@conn, :index) %></span>
+<span><%= link dgettext("links", "Back"), to: user_path(@conn, :index) %></span>

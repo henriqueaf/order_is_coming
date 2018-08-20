@@ -1,5 +1,5 @@
-<h2>Edit Order</h2>
+<h2><%= gettext "Edit %{model_name}", model_name: ngettext("Order", "Orders", 1) %></h2>
 
 <%= render "form.html", Map.put(assigns, :action, order_path(@conn, :update, @order)) %>
 
-<span><%= link "Back", to: order_path(@conn, :index) %></span>
+<span><%= link dgettext("links", "Back"), to: order_path(@conn, :index) %></span>

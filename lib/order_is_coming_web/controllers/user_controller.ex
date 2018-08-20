@@ -20,7 +20,7 @@ defmodule OrderIsComingWeb.UserController do
     case Accounts.create_user(user_params) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "User created successfully.")
+        |> put_flash(:info, gettext("%{model_name} created successfully", model_name: ngettext("User", "Users", 1)))
         |> redirect(to: user_path(conn, :show, user))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -44,7 +44,7 @@ defmodule OrderIsComingWeb.UserController do
     case Accounts.update_user(user, user_params) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "User updated successfully.")
+        |> put_flash(:info, gettext("%{model_name} updated successfully", model_name: ngettext("User", "Users", 1)))
         |> redirect(to: user_path(conn, :show, user))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)
@@ -56,7 +56,7 @@ defmodule OrderIsComingWeb.UserController do
     {:ok, _user} = Accounts.delete_user(user)
 
     conn
-    |> put_flash(:info, "User deleted successfully.")
+    |> put_flash(:info, gettext("%{model_name} deleted successfully", model_name: ngettext("User", "Users", 1)))
     |> redirect(to: user_path(conn, :index))
   end
 end

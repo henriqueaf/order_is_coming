@@ -4,9 +4,9 @@ defmodule OrderIsComingWeb.UserView do
   def handler_admin_info(user) do
     case user.admin do
       true ->
-        raw "<span class=\"badge badge-success\">Yes</span>"
+        raw "<span class=\"badge badge-success\">#{gettext("yes")}</span>"
       false ->
-        raw "<span class=\"badge badge-danger\">No</span>"
+        raw "<span class=\"badge badge-danger\">#{gettext("no")}</span>"
     end
   end
 end

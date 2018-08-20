@@ -49,12 +49,12 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :order_is_coming, OrderIsComing.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "order_is_coming_dev",
-  hostname: "172.17.0.2",
-  pool_size: 10
+# config :order_is_coming, OrderIsComing.Repo,
+#   adapter: Ecto.Adapters.Postgres,
+#   username: "postgres",
+#   password: "postgres",
+#   database: "order_is_coming_dev",
+#   hostname: "localhost",
+#   pool_size: 10
 
 import_config "dev.secret.exs"

@@ -14,16 +14,15 @@ defmodule OrderIsComingWeb.SessionController do
           true ->
             conn
             |> put_session(:user_id, user.id)
-            |> put_flash(:info, "Logged In")
             |> redirect(to: "/")
           false ->
             conn
-            |> put_flash(:error, "You must be a admin user.")
+            |> put_flash(:error, dgettext("session", "You must be a admin user"))
             |> render("new.html")
         end
       :error ->
         conn
-        |> put_flash(:error, "Incorrect username or password")
+        |> put_flash(:error, dgettext("session", "Incorrect username or password"))
         |> render("new.html")
     end
   end

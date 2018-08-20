@@ -1,11 +1,11 @@
-<h2>Listing Orders</h2>
+<h2><%= gettext "Listing %{model_name}", model_name: ngettext("Order", "Orders", 2) %></h2>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Value</th>
-      <th>Items</th>
-      <th>User</th>
+      <th><%= dgettext "orders", "Value" %></th>
+      <th><%= ngettext("Item", "Items", 2) %></th>
+      <th><%= ngettext("User", "Users", 2) %></th>
 
       <th></th>
     </tr>
@@ -18,12 +18,12 @@
       <td><%= order.user.name %></td>
 
       <td class="text-right">
-        <span><%= link "Edit", to: order_path(@conn, :edit, order), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: order_path(@conn, :delete, order), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        <span><%= link dgettext("links", "Edit"), to: order_path(@conn, :edit, order), class: "btn btn-default btn-xs" %></span>
+        <span><%= link dgettext("links", "Delete"), to: order_path(@conn, :delete, order), method: :delete, data: [confirm: gettext("Are you sure?")], class: "btn btn-danger btn-xs" %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Order", to: order_path(@conn, :new) %></span>
+<span><%= link gettext("New %{model_name}", model_name: ngettext("Order", "Orders", 1)), to: order_path(@conn, :new) %></span>

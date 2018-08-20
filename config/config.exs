@@ -26,6 +26,9 @@ config :order_is_coming, OrderIsComing.Auth.Guardian,
   issuer: "order_is_coming",
   secret_key: "jMhHyjDodMO69doj2zlJdHYgoUgoDkiN2p3iT81KJwtTF2rzebMRcVDpAEqiEf/k"
 
+# Configures the default locale of GetText
+config :order_is_coming, OrderIsComingWeb.Gettext, default_locale: "pt_BR", locales: ~w(en pt_BR)
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

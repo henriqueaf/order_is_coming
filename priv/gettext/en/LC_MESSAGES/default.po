@@ -1,0 +1,112 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/page/index.html.eex:2
+msgid "Welcome to %{name}!"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/index.html.eex:32
+#: lib/order_is_coming_web/templates/item/new.html.eex:1
+#: lib/order_is_coming_web/templates/order/index.html.eex:29
+#: lib/order_is_coming_web/templates/order/new.html.eex:1
+#: lib/order_is_coming_web/templates/user/index.html.eex:30
+#: lib/order_is_coming_web/templates/user/new.html.eex:1
+msgid "New %{model_name}"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/controllers/user_controller.ex:23
+#: lib/order_is_coming_web/controllers/user_controller.ex:47
+#: lib/order_is_coming_web/controllers/user_controller.ex:59
+#: lib/order_is_coming_web/templates/layout/_navbar.html.eex:13
+#: lib/order_is_coming_web/templates/order/index.html.eex:8
+#: lib/order_is_coming_web/templates/user/edit.html.eex:1
+#: lib/order_is_coming_web/templates/user/index.html.eex:1
+#: lib/order_is_coming_web/templates/user/index.html.eex:30
+#: lib/order_is_coming_web/templates/user/new.html.eex:1
+msgid "User"
+msgid_plural "Users"
+msgstr[0] ""
+msgstr[1] ""
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/index.html.eex:25
+#: lib/order_is_coming_web/templates/order/index.html.eex:22
+#: lib/order_is_coming_web/templates/user/index.html.eex:23
+msgid "Are you sure?"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/edit.html.eex:1
+#: lib/order_is_coming_web/templates/item/index.html.eex:1
+#: lib/order_is_coming_web/templates/item/index.html.eex:32
+#: lib/order_is_coming_web/templates/item/new.html.eex:1
+#: lib/order_is_coming_web/templates/layout/_navbar.html.eex:16
+#: lib/order_is_coming_web/templates/order/form.html.eex:16
+#: lib/order_is_coming_web/templates/order/index.html.eex:7
+msgid "Item"
+msgid_plural "Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/layout/_navbar.html.eex:19
+#: lib/order_is_coming_web/templates/order/edit.html.eex:1
+#: lib/order_is_coming_web/templates/order/index.html.eex:1
+#: lib/order_is_coming_web/templates/order/index.html.eex:29
+#: lib/order_is_coming_web/templates/order/new.html.eex:1
+msgid "Order"
+msgid_plural "Orders"
+msgstr[0] ""
+msgstr[1] ""
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/index.html.eex:1
+#: lib/order_is_coming_web/templates/order/index.html.eex:1
+#: lib/order_is_coming_web/templates/user/index.html.eex:1
+msgid "Listing %{model_name}"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/edit.html.eex:1
+#: lib/order_is_coming_web/templates/order/edit.html.eex:1
+#: lib/order_is_coming_web/templates/user/edit.html.eex:1
+msgid "Edit %{model_name}"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/views/user_view.ex:9
+msgid "no"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/views/user_view.ex:7
+msgid "yes"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/controllers/user_controller.ex:23
+msgid "%{model_name} created successfully"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/controllers/user_controller.ex:59
+msgid "%{model_name} deleted successfully"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/controllers/user_controller.ex:47
+msgid "%{model_name} updated successfully"
+msgstr ""

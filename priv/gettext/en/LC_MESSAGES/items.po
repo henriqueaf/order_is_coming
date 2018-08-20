@@ -1,0 +1,36 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/form.html.eex:15
+#: lib/order_is_coming_web/templates/item/index.html.eex:7
+msgid "Code"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/form.html.eex:21
+#: lib/order_is_coming_web/templates/item/index.html.eex:8
+msgid "Description"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/form.html.eex:9
+#: lib/order_is_coming_web/templates/item/index.html.eex:6
+msgid "Name"
+msgstr ""
+
+#, elixir-format
+#: lib/order_is_coming_web/templates/item/form.html.eex:27
+#: lib/order_is_coming_web/templates/item/index.html.eex:9
+msgid "Value"
+msgstr ""
