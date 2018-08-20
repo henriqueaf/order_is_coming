@@ -4,7 +4,7 @@ defmodule OrderIsComingWeb.UserController do
   alias OrderIsComing.Accounts
   alias OrderIsComing.Accounts.User
 
-  plug OrderIsComingWeb.Plugs.RequireAuth
+  plug OrderIsComingWeb.Plugs.RequireAdminAuth
 
   def index(conn, _params) do
     users = Accounts.list_users()

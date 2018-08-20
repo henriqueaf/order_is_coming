@@ -8,6 +8,7 @@ defmodule OrderIsComing.Accounts.User do
     field :name, :string
     field :password_hash, :string
     field :username, :string
+    field :admin, :boolean
     ## VIRTUAL FIELDS ##
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
@@ -15,10 +16,10 @@ defmodule OrderIsComing.Accounts.User do
     timestamps()
   end
 
-  @required_fields ~w(name username password)a
+  @required_fields ~w(name username password admin)a
   @optional_fields ~w()a
 
-  @update_required_fields ~w(name username)a
+  @update_required_fields ~w(name username admin)a
 
   @doc false
   def changeset(user, attrs) do

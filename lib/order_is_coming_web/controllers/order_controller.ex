@@ -4,7 +4,7 @@ defmodule OrderIsComingWeb.OrderController do
   alias OrderIsComing.Sales
   alias OrderIsComing.Sales.Order
 
-  plug OrderIsComingWeb.Plugs.RequireAuth
+  plug OrderIsComingWeb.Plugs.RequireAdminAuth
   plug :set_items when action in [:new, :edit, :update, :create]
 
   def index(conn, _params) do
@@ -24,7 +24,7 @@ defmodule OrderIsComingWeb.OrderController do
 
         conn
         |> put_flash(:info, "Order created successfully.")
-        |> redirect(to: order_path(conn, :show, order))
+        |> redirect(to: order_path(conn, :index))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -48,7 +48,7 @@ defmodule OrderIsComingWeb.OrderController do
 
     conn
     |> put_flash(:info, "Order updated successfully.")
-    |> redirect(to: order_path(conn, :show, order))
+    |> redirect(to: order_path(conn, :index))
   end
 
   def update(conn, %{"id" => id}) do

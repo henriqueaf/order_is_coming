@@ -10,10 +10,17 @@ defmodule OrderIsComingWeb.SessionController do
   def create(conn, params) do
     case Auth.login(params) do
       {:ok, user} ->
-        conn
-        |> put_session(:user_id, user.id)
-        |> put_flash(:info, "Logged In")
-        |> redirect(to: "/")
+        case user.admin do
+          true ->
+            conn
+            |> put_session(:user_id, user.id)
+            |> put_flash(:info, "Logged In")
+            |> redirect(to: "/")
+          false ->
+            conn
+            |> put_flash(:error, "You must be a admin user.")
+            |> render("new.html")
+        end
       :error ->
         conn
         |> put_flash(:error, "Incorrect username or password")

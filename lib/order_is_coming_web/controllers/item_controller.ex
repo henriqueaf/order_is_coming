@@ -4,7 +4,7 @@ defmodule OrderIsComingWeb.ItemController do
   alias OrderIsComing.Sales
   alias OrderIsComing.Sales.Item
 
-  plug OrderIsComingWeb.Plugs.RequireAuth
+  plug OrderIsComingWeb.Plugs.RequireAdminAuth
   plug :format_value when action in [:create, :update]
 
   def index(conn, _params) do
