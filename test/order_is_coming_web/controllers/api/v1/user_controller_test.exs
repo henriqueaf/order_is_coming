@@ -4,7 +4,7 @@ defmodule OrderIsComingWeb.Api.V1.UserControllerTest do
 
   alias OrderIsComing.Accounts
 
-  @create_attrs %{name: "some name", password: "some password", username: "some username"}
+  @create_attrs %{name: "some name", password: "some password", username: "some username", admin: true}
 
   def fixture(:user) do
     {:ok, user} = Accounts.create_user(@create_attrs)

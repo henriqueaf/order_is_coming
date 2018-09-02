@@ -20,6 +20,7 @@ defmodule OrderIsComingWeb.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
       import OrderIsComingWeb.Router.Helpers
+      import OrderIsComingWeb.Gettext
 
       # The default endpoint for testing
       @endpoint OrderIsComingWeb.Endpoint

@@ -5,8 +5,6 @@
 // and connect at the socket path in "lib/web/endpoint.ex":
 import {Socket} from "phoenix"
 
-let socket = new Socket("/socket", {params: {token: window.userToken}})
-
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,
 // which authenticates the session and assigns a `:current_user`.
@@ -51,12 +49,32 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 // Finally, pass the token on connect as below. Or remove it
 // from connect if you don't care about authentication.
 
-socket.connect()
+let socket = new Socket("/socket", {params: {token: window.userToken}})
 
-// Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
-channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
+const enableOrdersSocket = () => {
+  socket.connect();
 
-export default socket
+  const channel = socket.channel("orders:index", {})
+  channel.join()
+    .receive("ok", resp => null)
+    .receive("error", resp => { console.log("Unable to join", resp) })
+
+  channel.on("new_order", newOrder);
+  channel.on("update_order", updateOrder);
+  channel.on("delete_order", deleteOrder);
+}
+
+const newOrder = ({ order }) => {
+  $("#orders-tbody").prepend(order);
+}
+
+const updateOrder = ({ order_id, order }) => {
+  $(`#orders-tbody tr[data-id='${order_id}']`).replaceWith(order);
+}
+
+const deleteOrder = ({ order_id }) => {
+  $(`#orders-tbody tr[data-id='${order_id}']`).remove();
+}
+
+// export default socket
+window.enableOrdersSocket = enableOrdersSocket;

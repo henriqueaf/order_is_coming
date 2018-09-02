@@ -6,9 +6,9 @@ defmodule OrderIsComing.AccountsTest do
   describe "users" do
     alias OrderIsComing.Accounts.User
 
-    @valid_attrs %{name: "some name", password: "some password", username: "some username"}
-    @update_attrs %{name: "some updated name", password: "some updated password", username: "some updated username"}
-    @invalid_attrs %{name: nil, password: nil, username: nil}
+    @valid_attrs %{name: "some name", password: "some password", username: "some username", admin: true}
+    @update_attrs %{name: "some updated name", password: "some updated password", username: "some updated username", admin: true}
+    @invalid_attrs %{name: nil, password: nil, username: nil, admin: nil}
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =

@@ -4,9 +4,9 @@ defmodule OrderIsComingWeb.UserControllerTest do
 
   alias OrderIsComing.Accounts
 
-  @create_attrs %{name: "some name", password: "some password", username: "some username"}
-  @update_attrs %{name: "some updated name", password: "some updated password", username: "some updated username"}
-  @invalid_attrs %{name: nil, password: nil, username: nil}
+  @create_attrs %{name: "some name", password: "some password", username: "some username", admin: true}
+  @update_attrs %{name: "some updated name", password: "some updated password", username: "some updated username", admin: true}
+  @invalid_attrs %{name: nil, password: nil, username: nil, admin: nil}
 
   def fixture(:user) do
     {:ok, user} = Accounts.create_user(@create_attrs)
@@ -24,7 +24,7 @@ defmodule OrderIsComingWeb.UserControllerTest do
       |> init_test_session(user_id: user.id)
       |> get(user_path(conn, :index))
 
-      assert html_response(conn, 200) =~ "Listing Users"
+      assert html_response(conn, 200) =~ gettext("Listing %{model_name}", model_name: ngettext("User", "Users", 2))
     end
   end
 
@@ -34,7 +34,7 @@ defmodule OrderIsComingWeb.UserControllerTest do
       |> init_test_session(user_id: user.id)
       |> get(user_path(conn, :new))
 
-      assert html_response(conn, 200) =~ "New User"
+      assert html_response(conn, 200) =~ gettext("New %{model_name}", model_name: ngettext("User", "Users", 1))
     end
   end
 
@@ -56,7 +56,7 @@ defmodule OrderIsComingWeb.UserControllerTest do
       |> init_test_session(user_id: user.id)
       |> post(user_path(conn, :create), user: @invalid_attrs)
 
-      assert html_response(conn, 200) =~ "New User"
+      assert html_response(conn, 200) =~ gettext("New %{model_name}", model_name: ngettext("User", "Users", 1))
     end
   end
 
@@ -66,7 +66,7 @@ defmodule OrderIsComingWeb.UserControllerTest do
       |> init_test_session(user_id: user.id)
       |> get(user_path(conn, :edit, user))
 
-      assert html_response(conn, 200) =~ "Edit User"
+      assert html_response(conn, 200) =~ gettext("Edit %{model_name}", model_name: ngettext("User", "Users", 1))
     end
   end
 
@@ -89,7 +89,7 @@ defmodule OrderIsComingWeb.UserControllerTest do
       |> init_test_session(user_id: user.id)
       |> put(user_path(conn, :update, user), user: @invalid_attrs)
 
-      assert html_response(conn, 200) =~ "Edit User"
+      assert html_response(conn, 200) =~ gettext("Edit %{model_name}", model_name: ngettext("User", "Users", 1))
     end
   end
 

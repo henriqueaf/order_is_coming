@@ -5,7 +5,7 @@ defmodule OrderIsComingWeb.ItemControllerTest do
   alias OrderIsComing.Sales
   alias OrderIsComing.Accounts
 
-  @create_user_attrs %{name: "some name", password: "some password", username: "some username"}
+  @create_user_attrs %{name: "some name", password: "some password", username: "some username", admin: true}
   @create_attrs %{code: 42, description: "some description", name: "some name", value: "120.5"}
   @update_attrs %{code: 43, description: "some updated description", name: "some updated name", value: "456.7"}
   @invalid_attrs %{code: nil, description: nil, name: nil, value: nil}

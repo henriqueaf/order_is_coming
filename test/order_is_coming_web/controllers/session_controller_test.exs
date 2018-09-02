@@ -3,7 +3,7 @@ defmodule OrderIsComingWeb.SessionControllerTest do
 
   alias OrderIsComing.Accounts
 
-  @create_attrs %{name: "some name", password: "some password_hash", username: "some username"}
+  @create_attrs %{name: "some name", password: "some password_hash", username: "some username", admin: true}
 
   def fixture(:user) do
     {:ok, user} = Accounts.create_user(@create_attrs)
